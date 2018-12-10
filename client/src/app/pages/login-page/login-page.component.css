@@ -1,0 +1,8 @@
+ng-select /deep/ .ng-dropdown-panel-items {
+  background: #ffffff;
+}
+
+ng-select /deep/ .ng-value-container {
+  padding: 5px;
+}
+

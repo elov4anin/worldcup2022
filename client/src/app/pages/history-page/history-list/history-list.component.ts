@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {Order} from '../../../shared/interfaces/order.interface';
 import {MaterialInstance, MaterialService} from '../../../shared/classes/material.service';
+import {IBid} from '../../../shared/interfaces/category.interface';
 
 @Component({
   selector: 'app-history-list',
@@ -8,10 +9,10 @@ import {MaterialInstance, MaterialService} from '../../../shared/classes/materia
   styleUrls: ['./history-list.component.css']
 })
 export class HistoryListComponent implements OnDestroy, AfterViewInit {
-  @Input() orders: Order[];
+  @Input() bids: IBid[];
   @ViewChild('modal') modalRef: ElementRef;
 
-  selectedOrder: Order;
+  selectedBid: IBid;
 
   modal: MaterialInstance;
 
@@ -23,15 +24,8 @@ export class HistoryListComponent implements OnDestroy, AfterViewInit {
     this.modal = MaterialService.initModal(this.modalRef);
   }
 
-
-  computePrice(order: Order): number {
-    return order.list.reduce((total, item) => {
-      return total += item.quantity * item.cost;
-    }, 0);
-  }
-
-  selectOrder(order: Order) {
-    this.selectedOrder = order;
+  selectOrder(order: IBid) {
+    this.selectedBid = order;
     this.modal.open();
 
   }

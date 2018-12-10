@@ -19,7 +19,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
   tooltip: MaterialInstance;
   offset = 0;
   limit = STEP;
-  orders: IBid[] = [];
+  bids: IBid[] = [];
   loading = false;
   reloading = false;
   osSub: Subscription;
@@ -53,9 +53,9 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
       offset: this.offset,
       limit: this.limit
     });
-    this.osSub = this._bidsService.fetch(params).subscribe(orders => {
-      this.orders = this.orders.concat(orders);
-      this.noMoreOrders = orders.length < STEP;
+    this.osSub = this._bidsService.fetch(params).subscribe(bids => {
+      this.bids = this.bids.concat(bids);
+      this.noMoreOrders = bids.length < STEP;
       this.loading = false;
       this.reloading = false;
 
@@ -69,7 +69,7 @@ export class HistoryPageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   applyFilter(filter: FilterInterface) {
-    this.orders = [];
+    this.bids = [];
     this.offset = 0;
     this.filter = filter;
     this.reloading = true;

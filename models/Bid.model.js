@@ -3,25 +3,17 @@ const Schema = mongoose.Schema;
 
 const bidSchema = new Schema({
     name: {
-        type: String,
-        required: true
-    },
-    imageSrc: {
-        type: String,
-        default: ''
+        type: String
     },
     birthday: {
-        type: Date,
-        required: true
+        type: Date
     },
     email: {
         type: String,
-        required: true,
         unique: true
     },
     country: {
-        type: String,
-        required: true
+        type: String
     },
 });
 

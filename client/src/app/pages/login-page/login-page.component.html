@@ -52,14 +52,21 @@
       </span>-->
     </div>
     <div class="input-field">
-      <input
+     <!-- <input
         formControlName="country"
         id="country"
         type="text"
         [ngClass] = "{'invalid': form.get('country').invalid && form.get('country').touched }"
 
-      >
-      <label for="birthday">Страна:</label>
+      >-->
+
+      <ng-select #agesSelect [items]="countries"
+                 bindValue="value"
+                 bindLabel="value"
+                 formControlName="country"
+
+                >
+      </ng-select>
       <span
         class="helper-text red-text"
         *ngIf="form.get('country').invalid && form.get('country').touched"
@@ -74,6 +81,6 @@
       class="modal-action btn waves-effect"
       type="submit"
     >
-      Войти</button>
+      Оставить заявку</button>
   </div>
 </form>

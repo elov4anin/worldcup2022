@@ -6,7 +6,6 @@ const path = require('path');
 
 const mongoose = require('mongoose');
 
-const authRoutes = require('./routes/auth.route');
 const bidRoutes = require('./routes/bid.route');
 const keys = require('./config/keys');
 
@@ -35,7 +34,6 @@ app.use(bodyParser.json());
 
 app.use(require('cors')());
 
-app.use('/api/auth', authRoutes);
 app.use('/api/bid', bidRoutes);
 
 if (process.env.NODE_ENV === 'production') {

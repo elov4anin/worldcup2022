@@ -18,10 +18,6 @@ module.exports.getAll = async (req, res) => {
         query.date['$lte'] = req.query.end
     }
 
-    if(req.query.order) {
-        query.order = +req.query.order
-    }
-
     try {
         const bids = await Bid
             .find(query)
@@ -69,7 +65,6 @@ module.exports.remove = async (req, res) => {
 module.exports.create = async (req, res) => {
     const bid = new Bid({
         name: req.body.name,
-        imageSrc: req.file ? req.file.path : '',
         country: req.body.country,
         birthday: req.body.birthday,
         email: req.body.email,
@@ -88,10 +83,6 @@ module.exports.update = async (req, res) => {
     const updated = {
         name: req.body.name
     };
-
-    if (req.file) {
-        updated.imageSrc = req.file.path;
-    }
     try {
         const bid = await Bid.findOneAndUpdate(
             {_id: req.params.id},

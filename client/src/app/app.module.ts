@@ -13,6 +13,7 @@ import {HistoryPageComponent} from './pages/history-page/history-page.component'
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { HistoryListComponent } from './pages/history-page/history-list/history-list.component';
 import { HistoryFilterComponent } from './pages/history-page/history-filter/history-filter.component';
+import {NgSelectModule} from '@ng-select/ng-select';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { HistoryFilterComponent } from './pages/history-page/history-filter/hist
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgSelectModule
   ],
   providers: [
     {

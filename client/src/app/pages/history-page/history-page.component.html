@@ -1,5 +1,5 @@
 <div class="page-title">
-  <h4>История заказов</h4>
+  <h4>История заявок</h4>
   <button
     (click)="isFilterVisible = !isFilterVisible"
     class="btn btn-small "
@@ -21,8 +21,8 @@
 ></app-history-filter>
 
 <div *ngIf="!reloading; else reloadingBlock">
- <div *ngIf = "orders.length > 0; else empty">
-   <app-history-list [orders]="orders"></app-history-list>
+ <div *ngIf = "bids.length > 0; else empty">
+   <app-history-list [bids]="bids"></app-history-list>
 
     <div
       *ngIf="!noMoreOrders"

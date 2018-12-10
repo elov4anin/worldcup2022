@@ -12,7 +12,6 @@ export class HistoryFilterComponent implements OnDestroy, AfterViewInit {
 
   @ViewChild('start') startRef: ElementRef;
   @ViewChild('end') endRef: ElementRef;
-  order: number;
 
   start: MaterialDatepicker;
   end: MaterialDatepicker;
@@ -43,9 +42,6 @@ export class HistoryFilterComponent implements OnDestroy, AfterViewInit {
   submitFilter() {
     const filter: FilterInterface = {};
 
-    if (this.order) {
-      filter.order = this.order;
-    }
     if (this.start.date) {
       filter.start = this.start.date;
     }

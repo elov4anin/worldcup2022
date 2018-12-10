@@ -17,6 +17,24 @@ export class LoginPageComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('birthday') birthdayRef: ElementRef;
   birthday: MaterialDatepicker;
   private isValid = false;
+  countries
+    = [
+    {
+      id: 1, value: 'Россия'
+    },
+    {
+      id: 2, value: 'США'
+    },
+    {
+      id: 3, value: 'Китай'
+    },
+    {
+      id: 4, value: 'Беларусь'
+    },
+    {
+      id: 5, value: 'Англия'
+    }
+  ];
 
   constructor(
     private _bidsService: BidsService,
@@ -27,7 +45,7 @@ export class LoginPageComponent implements OnInit, OnDestroy, AfterViewInit {
   ngOnInit() {
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
-      country: new FormControl(null, [Validators.required]),
+      country: new FormControl(this.countries[0].value, [Validators.required]),
       birthday: new FormControl(null),
       email: new FormControl(null, [Validators.required, Validators.email]),
     });
@@ -55,8 +73,8 @@ export class LoginPageComponent implements OnInit, OnDestroy, AfterViewInit {
     this.aSub = this._bidsService.create(this.form.value).subscribe(
       () => this._router.navigate(['/history']),
       error1 => {
-        MaterialService.toast(error1.error.message);
         this.form.enable();
+        MaterialService.toast(error1.error.message);
       }
     );
 

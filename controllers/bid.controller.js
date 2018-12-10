@@ -30,10 +30,6 @@ module.exports.getAll = async (req, res) => {
     } catch (e) {
         errorHandler(res, e);
     }
-    res.status(200).json({
-        login: 'from controller'
-    })
-
 };
 
 module.exports.getById = async (req, res) => {
@@ -62,17 +58,21 @@ module.exports.remove = async (req, res) => {
     }
 };
 
-module.exports.create = async (req, res) => {
+module.exports.create = (req, res) => {
     const bid = new Bid({
         name: req.body.name,
         country: req.body.country,
         birthday: req.body.birthday,
-        email: req.body.email,
+        email: req.body.email
     });
 
     try {
-        await bid.save();
-        res.status(201).json(bid);
+        Bid.create({name: req.body.name}, (err, bid) => {
+            if (err) return handleError(err);
+            res.status(201).json(bid);
+        });
+       // await bid.create();
+
 
     } catch (e) {
         errorHandler(e);

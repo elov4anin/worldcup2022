@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auth-layouts.component.css']
 })
 export class AuthLayoutsComponent implements OnInit {
-
+  finishDate  =  'November 21, 2022, 00:33';
   constructor() { }
 
   ngOnInit() {

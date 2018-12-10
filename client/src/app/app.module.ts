@@ -15,7 +15,6 @@ import { HistoryListComponent } from './pages/history-page/history-list/history-
 import { HistoryFilterComponent } from './pages/history-page/history-filter/history-filter.component';
 import {NgSelectModule} from '@ng-select/ng-select';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +33,7 @@ import {NgSelectModule} from '@ng-select/ng-select';
     ReactiveFormsModule,
     HttpClientModule,
     NgSelectModule
+
   ],
   providers: [
     {

@@ -5,7 +5,7 @@
       (ngSubmit)="onSubmit()"
 >
   <div class="card-content">
-    <span class="card-title">Зааявка на паспорт болельщика</span>
+    <span class="card-title">Заявка на паспорт болельщика</span>
     <div class="input-field">
       <input
         formControlName="name"
@@ -37,30 +37,18 @@
         <span *ngIf="form.get('email').errors['email']">Email не корректен</span>
       </span>
     </div>
-    <div class="input-field">
+    <div>
+      <label for="name">Дата рождения:</label>
       <input
-        formControlName="birthday"
         id="birthday"
         #birthday
         type="text"
         class="datepicker"
+        formControlName="birthday"
       >
-      <label for="name">Дата рождения:</label>
-    <!--  <span
-        class="helper-text red-text"
-        *ngIf="form.get('birthday').invalid && form.get('birthday').touched"
-      >
-        <span *ngIf="form.get('birthday').errors['required']">Дата не может быть быть пустой</span>
-      </span>-->
+
     </div>
     <div class="input-field">
-     <!-- <input
-        formControlName="country"
-        id="country"
-        type="text"
-        [ngClass] = "{'invalid': form.get('country').invalid && form.get('country').touched }"
-
-      >-->
 
       <ng-select #agesSelect [items]="countries"
                  bindValue="value"

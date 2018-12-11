@@ -58,21 +58,23 @@ module.exports.remove = async (req, res) => {
     }
 };
 
-module.exports.create = (req, res) => {
+module.exports.create = async (req, res) => {
     const bid = new Bid({
         name: req.body.name,
         country: req.body.country,
         birthday: req.body.birthday,
-        email: req.body.email
+        email: req.body.email,
     });
 
     try {
-        Bid.create({name: req.body.name}, (err, bid) => {
-            if (err) return handleError(err);
-            res.status(201).json(bid);
-        });
-       // await bid.create();
-
+         await bid.save();
+       /* await new Bid({
+            name: req.body.name,
+            country: req.body.country,
+            birthday: req.body.birthday,
+            email: req.body.email,
+        }).save();*/
+        res.status(201).json(bid);
 
     } catch (e) {
         errorHandler(e);

@@ -28,6 +28,8 @@
     "@ng-select/ng-select": "^2.13.1",
     "chart.js": "^2.7.3",
     "core-js": "^2.5.4",
+    "ng6-countdown": "^1.0.2",
+    "ngx-countdown-timer": "^0.1.9",
     "rxjs": "^6.0.0",
     "typescript": "~2.7.2",
     "zone.js": "~0.8.26"

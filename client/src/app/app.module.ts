@@ -14,6 +14,7 @@ import { LoaderComponent } from './shared/components/loader/loader.component';
 import { HistoryListComponent } from './pages/history-page/history-list/history-list.component';
 import { HistoryFilterComponent } from './pages/history-page/history-filter/history-filter.component';
 import {NgSelectModule} from '@ng-select/ng-select';
+import {CountdownTimerModule} from 'ngx-countdown-timer';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,8 @@ import {NgSelectModule} from '@ng-select/ng-select';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgSelectModule
-
+    NgSelectModule,
+    CountdownTimerModule.forRoot()
   ],
   providers: [
     {

@@ -17,6 +17,7 @@ export class LoginPageComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('birthday') birthdayRef: ElementRef;
   birthday: MaterialDatepicker;
   private isValid = false;
+  selecteDate: string;
   countries
     = [
     {
@@ -69,6 +70,9 @@ export class LoginPageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   onSubmit() {
     this.form.disable();
+    if (this.birthday.date) {
+      this.form.controls['birthday'].patchValue( this.birthday.date);
+    }
 
     this.aSub = this._bidsService.create(this.form.value).subscribe(
       () => this._router.navigate(['/history']),
